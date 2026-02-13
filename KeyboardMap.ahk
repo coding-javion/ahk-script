@@ -23,27 +23,50 @@ CapsLock::Ctrl ; 大写锁定设置为Ctrl
 
 #InputLevel 1
 
+global __AltTabMode := false
+
+; Alt+Tab 切换器属于系统覆盖层，窗口类无法检测。
+; 这里用状态标记：检测到 Alt+Tab 后进入模式，Alt 松开后退出模式。
+~!Tab:: {
+   global __AltTabMode := true
+}
+
+; 兼容某些环境下 ~!Tab 不触发：改用 Tab + 物理 Alt 兜底
+~*Tab:: {
+   if GetKeyState("Alt", "P") {
+      global __AltTabMode := true
+   }
+}
+
+~*Alt Up:: {
+   global __AltTabMode := false
+}
+
 !j:: ; 将 Alt + kjhl定义为上下左右
 {
-   SendInput "{Down}"
+   global __AltTabMode
+   SendInput (__AltTabMode ? "{Blind}{Down}" : "{Down}")
    Hotstring "Reset"
 }
 
 !l::
 {
-   SendInput "{Right}"
+   global __AltTabMode
+   SendInput (__AltTabMode ? "{Blind}{Right}" : "{Right}")
    Hotstring "Reset"
 }
 
 !h::
 {
-   SendInput "{Left}"
+   global __AltTabMode
+   SendInput (__AltTabMode ? "{Blind}{Left}" : "{Left}")
    Hotstring "Reset"
 }
 
 !k::
 {
-   SendInput "{Up}"
+   global __AltTabMode
+   SendInput (__AltTabMode ? "{Blind}{Up}" : "{Up}")
    Hotstring "Reset"
 }
 

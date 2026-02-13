@@ -22,10 +22,10 @@ SendMode "Event"
 
 ; **************************************************************************************** 
 
-#Include D:/Tools/AHKscript/KeyboardMap.ahk
-#Include D:/Tools/AHKscript/SearchInEudic.ahk
-#Include D:/Tools/AHKscript/Others.ahk
-#Include D:/Tools/AHKscript/Lyx.ahk
-#Include D:/Tools/AHKscript/IME.ahk
-#Include D:/Tools/AHKscript/DPI.ahk
-#Include D:/Tools/AHKscript/Obsidian.ahk
+#Include D:/30-Tools/AHKscript/KeyboardMap.ahk
+#Include D:/30-Tools/AHKscript/SearchInEudic.ahk
+#Include D:/30-Tools/AHKscript/Others.ahk
+#Include D:/30-Tools/AHKscript/Lyx.ahk
+#Include D:/30-Tools/AHKscript/IME.ahk
+#Include D:/30-Tools/AHKscript/DPI.ahk
+#Include D:/30-Tools/AHKscript/Obsidian.ahk
